@@ -3,5 +3,5 @@ from .views import *
 
 app_name='problem'
 urlpatterns = [
-
+    path('', pstart, name='pstart'),
 ]

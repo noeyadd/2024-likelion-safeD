@@ -3,5 +3,5 @@ from .views import *
 
 app_name='memory'
 urlpatterns = [
-
+    path('', mstart, name='mstart'),
 ]

@@ -3,5 +3,5 @@ from .views import *
 
 app_name='tips'
 urlpatterns = [
-
+    path('', tstart, name='tstart'),
 ]
