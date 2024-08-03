@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def mstart(request):
+    return render(request, 'memory.html')

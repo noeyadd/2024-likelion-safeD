@@ -1,3 +1,4 @@
 from django.shortcuts import render
 
-# Create your views here.
+def pstart(request):
+    return render(request, 'problem.html')
