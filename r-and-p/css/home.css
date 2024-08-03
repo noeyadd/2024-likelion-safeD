@@ -1,0 +1,24 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  .nav_div {
+    position: fixed;
+    bottom: 0;
+  }
+
+  nav {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

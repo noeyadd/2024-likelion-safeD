@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="./css/r-result.css" />
+  </head>
+  <body>
+    <header>
+      <a href="home.html"><img src="./img/Button.png" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="./img/remember.png" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <div class="instructions">
+        <h2>결과 분석</h2>
+        <p id="score-text">점수 x/5</p>
+        <p id="result-text">훌륭해요! 모든 문제를 정확히 맞혔습니다. 도로 표지판에 대한 기억력이 뛰어나네요!</p>
+        <button class="btn-note">오답노트</button>
+      </div>
+      <div class="actions">
+        <a href="remember.html"><button class="btn-action">RESTART</button></a>
+        <a href="home.html"><button class="btn-action">END</button></a>
+      </div>
+    </section>
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <div class="note-header">
+          <h3>오답노트</h3>
+          <button class="close-btn">&times;</button>
+        </div>
+        <ul id="mistake-list">
+          <li>1. <span id="result-1"></span></li>
+          <li>2. <span id="result-2"></span></li>
+          <li>3. <span id="result-3"></span></li>
+          <li>4. <span id="result-4"></span></li>
+          <li>5. <span id="result-5"></span></li>
+        </ul>
+        <button class="btn-overlay">틀린 문제보기</button>
+      </div>
+    </div>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="home.html"><img src="img/home.png" id="home_img" /></a>
+        </div>
+        <div class="nav_law">
+          <a href="law.html"><img src="img/law.png" id="law_img" /></a>
+        </div>
+      </div>
+    </nav>
+    <script src="./js/r-result.js"></script>
+  </body>
+</html>

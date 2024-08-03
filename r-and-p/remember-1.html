@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remember</title>
+    <link rel="stylesheet" href="./css/remember-1.css" />
+  </head>
+  <body>
+    <header>
+      <a href="home.html"><img src="./img/Button.png" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="./img/remember.png" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <div class="instructions">
+        <div class="image-box">
+          <img src="./img/sample.png" id="q-img" />
+        </div>
+        <div class="buttons">
+          <button class="btn" id="correct-btn">보기1</button>
+          <button class="btn">보기2</button>
+          <button class="btn">보기3</button>
+          <button class="btn">보기4</button>
+        </div>
+        <button class="btn" id="next-question" style="display: none">다음 문제</button>
+      </div>
+    </section>
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <div class="result-container">
+          <div class="result-left">
+            <img src="" alt="결과 이미지" id="result-img" />
+          </div>
+          <div class="result-right">
+            <p id="result-text"></p>
+          </div>
+        </div>
+        <div class="overlay-buttons">
+          <button class="btn-overlay" id="check-answer">정답 확인</button>
+          <button class="btn-overlay" id="next-question-overlay">다음 문제</button>
+          <button class="btn-overlay" id="view-result" style="display: none">결과 보기</button>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="home.html"><img src="img/home.png" id="home_img" /></a>
+        </div>
+        <div class="nav_law">
+          <a href="law.html"><img src="img/law.png" id="law_img" /></a>
+        </div>
+      </div>
+    </nav>
+    <script src="./js/remember-1.js"></script>
+  </body>
+</html>
