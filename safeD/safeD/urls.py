@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from reaction.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('reaction/', include('reaction.urls')),
+    path('problem/', include('problem.urls')),
+    path('memory/', include('memory.urls')),
+    path('tips/', include('tips.urls')),
+    path('', home, name='home'), # reaction/views에 home 만들기
 ]
