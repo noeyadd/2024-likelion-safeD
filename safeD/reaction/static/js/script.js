@@ -80,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (signalState === 'red') {
             showMessage('Bad');
         }
+        if (signalState === 'green') {
+            showMessage('Good');
+        }
     });
 
     // 브레이크 버튼 클릭 시 실행되는 함수
@@ -89,7 +92,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const reactionTime = (reactionEndTime - reactionStartTime) / 1000; // 반응 시간 계산 (초)
             endGame(reactionTime);
         }
-        showMessage('Good');
+        if (signalState === 'red') {
+            showMessage('Good');
+        }
+        if (signalState === 'green') {
+            showMessage('Bad');
+        }
     });
 
     // 게임 종료 및 결과 모달 표시
