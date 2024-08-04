@@ -1,0 +1,89 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  .nav_div {
+    position: fixed;
+    bottom: 0;
+  }
+
+  nav {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+#back_btn > img {
+  height: 50px;
+}
+#top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#top > img {
+  height: 35px;
+  margin-right: 10px;
+}
+
+#box {
+  width: 320px;
+  height: auto;
+  background-color: #f2fafc;
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 15px;
+  margin-left: 25px;
+  margin-top: 25px;
+}
+
+#box > #text > h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6bb8ff;
+}
+
+#box > img {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 53px;
+}
+
+#box > #text > h5 {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#text {
+  margin-top: 30px;
+}
+
+button {
+  width: 250px;
+  height: 60px;
+  background-color: #234ebd;
+  margin: 25px;
+  color: #fff;
+  border-radius: 12px;
+  font-size: 18px;
+  margin-left: 60px;
+  border: none;
+  cursor: pointer;
+}

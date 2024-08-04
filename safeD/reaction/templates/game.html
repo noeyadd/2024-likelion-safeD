@@ -1,40 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Traffic Game</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div id="game-container">
-        <div id="message" class="message hidden"></div>
-        <div id="traffic-light">
-            <div class="light red"></div>
-            <div class="light yellow"></div>
-            <div class="light green"></div>
-        </div>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <nav>
+    <div class="nav">
+      <div class="nav_home">
+        <a href="{% static 'home.html'%}"><img src="{% static 'img/home.png'%}" id="home_img" /></a>
+      </div>
+      <!-- ~<div class="nav_home"> -->
 
-        <div id="road">
-            <div id="deer" class="hidden">🦌</div>
-            <div id="car"></div>
-        </div>
-        
-        <button id="accelButton">엑셀</button>
-        <button id="brakeButton">브레이크</button>
+      <div class="nav_law">
+        <a href="{% static 'tips.html'%}"><img src="{% static 'img/law.png'%}" id="law_img" /></a>
+      </div>
+      <!-- ~<div class="nav_law"> -->
     </div>
-    
+    <!-- ~<div class="nav"> -->
+  </nav>
+  <body>
+    <div id="back_btn">
+      <img src="{% static 'img/back_blue.png' %}" alt="Back Blue Image" />
+    </div>
+    <div id="top">
+        <img src="{% static 'img/bammm.png' %}" />
+        <h3>반응 속도</h3>
+      </div>
+      <div id="box">  
+        <div id="game-container">
+            <div id="message" class="message hidden"></div>
+            <div id="traffic-light">
+                <div class="light red"></div>
+                <div class="light yellow"></div>
+                <div class="light green"></div>
+            </div>
+        <div id="road">
+            <img src="{% static 'img/carline.png'%}">
+            <div id="gorani" class="hidden"><img src="{% static 'img/gorani.png'%}"></div>
+            <div id="car"><img src="{% static 'img/car.png'%}"></div>
+        </div>
+        </div>
+    <div id="btn">
+      <button id="accelButton">엑셀</button>
+      <button id="brakeButton">브레이크</button>
+    </div>
+
     <!-- 결과 모달 -->
     <div id="resultModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="resultText"></p>
-            <button id="restartButton">게임 다시하기</button>
-            <button id="homeButton">Home으로 돌아가기</button>
-        </div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="resultText"></p>
+        <button id="restartButton">RESTART</button>
+        <button id="homeButton">END</button>
+      </div>
     </div>
-    
+
     <script src="{% static 'js/script.js' %}"></script>
-</body>
+  </body>
 </html>
