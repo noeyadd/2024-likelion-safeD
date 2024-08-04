@@ -1,0 +1,202 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #btn_img {
+    width: 13px;
+    height: 20px;
+    margin-top: 30px;
+    margin-left: 23px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+    margin-top: 35px;
+  }
+
+  .h1-img {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #remember_img {
+    width: 35px;
+    height: 35px;
+    margin-top: 13px;
+    margin-right: 10px;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .instructions {
+    background-color: #e8f4fa;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .instructions h2 {
+    margin-top: 0;
+    padding-top: 0;
+    color: #6bb8ff;
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+
+  #score-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  #result-text {
+    font-size: 1em;
+    margin-bottom: 20px;
+  }
+
+  .btn-note {
+    background-color: #fff;
+    width: 85%;
+    height: 50px;
+    color: #8fc9ff;
+    border: 1px solid #8fc9ff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-action {
+    display: block;
+    margin-left: 14vw;
+    width: 70%;
+    height: 50px;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    background-color: #234ebd;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Overlay part */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .overlay-content {
+    background-color: #e3e4e4;
+    opacity: 97%;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    position: relative;
+  }
+
+  .note-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-bottom: 7px;
+  }
+
+  #mistake-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    text-align: left;
+  }
+
+  #mistake-list li {
+    margin-bottom: 5px;
+    color: #234ebd;
+  }
+
+  .btn-overlay {
+    background-color: #e3e4e4;
+    color: #234ebd;
+    border: none;
+    border-top: 1px solid #383838;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .note-header h3 {
+    margin-left: 105px;
+  }
+
+  /* nav part */
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    height: 53px;
+    background-color: #fff;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  #home_img,
+  #law_img,
+  #search_img {
+    width: 24px;
+    height: 24px;
+  }
+}

@@ -1,21 +1,75 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Quiz Result</title>
-</head>
-<body>
-    <h1>Quiz Result</h1>
-    <p>점수 {{ score }}/{{ total }}</p><br>
-    {% if score == 5 %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <link rel="stylesheet" href="{% static 'css/mresult.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><img src="{% static 'img/Button.png' %}" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="{% static 'img/remember.png' %}" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <div class="instructions">
+        <h2>결과 분석</h2>
+        <p id="score-text">점수 {{ score }}/{{ total }}</p>
+        {% if score == 5 %}
         <p>훌륭해요! 모든 문제를 정확히 해결했습니다. 운전 시 매우 신중하고 적절하게 대처할 수 있겠어요!!</p>
-    {% elif score == 0 %}
+        {% elif score == 0 %}
         <p>다시 도전해 보세요. 모든 문제를 틀렸습니니다. 더 많은 연습이 필요해요.</p>
-    {% else %}
+        {% else %}
         <p>괜찮아요! 몇 가지 문제에서 실수가 있었습니다. 더 많은 연습을 통해 문제 해결 능력을 향상시켜 보세요.</p>
-    {% endif %}
-    <a href="{% url 'memory:note_view' %}">오답 노트</a><br>
-    <a href="{% url 'memory:mstart' %}">restart</a><br>
-    <a href="{% url 'home' %}">end</a>
-</body>
+        {% endif %}
+        <button class="btn-note">오답노트</button>
+      </div>
+      <div class="actions">
+        <a href="{% url 'memory:mstart' %}"><button class="btn-action">RESTART</button></a>
+        <a href="{% url 'home' %}"><button class="btn-action">END</button></a>
+      </div>
+    </section>
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <div class="note-header">
+          <h3>오답노트</h3>
+          <button class="close-btn">&times;</button>
+        </div>
+        <ul id="mistake-list">
+          <li>1. <span id="result-1"></span></li>
+          <li>2. <span id="result-2"></span></li>
+          <li>3. <span id="result-3"></span></li>
+          <li>4. <span id="result-4"></span></li>
+          <li>5. <span id="result-5"></span></li>
+        </ul>
+        <a href="{% url 'memory:note_view' %}"><button class="btn-overlay">틀린 문제보기</button></a>
+      </div>
+    </div>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}"
+            ><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}"
+          /></a>
+        </div>
+        <!-- ~<div class="nav_home"> -->
+
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}"
+            ><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}"
+          /></a>
+        </div>
+        <!-- ~<div class="nav_law"> -->
+      </div>
+      <!-- ~<div class="nav"> -->
+    </nav>
+    <script src="{% static 'js/mresult.js' %}"></script>
+  </body>
 </html>
