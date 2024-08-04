@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Game</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="game-container">
+        <div id="message" class="message hidden"></div>
+        <div id="traffic-light">
+            <div class="light red"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+
+        <div id="road">
+            <div id="deer" class="hidden">🦌</div>
+            <div id="car"></div>
+        </div>
+        
+        <button id="accelButton">엑셀</button>
+        <button id="brakeButton">브레이크</button>
+    </div>
+    
+    <!-- 결과 모달 -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="resultText"></p>
+            <button id="restartButton">게임 다시하기</button>
+            <button id="homeButton">Home으로 돌아가기</button>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
