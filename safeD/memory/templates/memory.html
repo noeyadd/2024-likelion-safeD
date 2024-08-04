@@ -1,12 +1,48 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>기억력</p>
-    <a href="{% url 'memory:mstart' %}">start</a>
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="{% static 'css/memory.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><img src="{% static 'img/Button.png' %}" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="{% static 'img/remember.png' %}" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="instructions">
+        <h2>게임 방법</h2>
+        <p>
+          도표 표시관과 도표 선 표시의 의미를 <br> 묻는 퀴즈입니다. 이미지가 제시되며, <br> 문제의 보기 중 맞는 답 하나를 <br>
+          선택하세요.
+        </p>
+      </div>
+      <a href="{% url 'memory:mstart' %}" class="start-btn">start</a>
+    </section>
+    <nav>
+        <div class="nav">
+          <div class="nav_home">
+            <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}"></a>
+          </div><!-- ~<div class="nav_home"> -->
+    
+          <div class="nav_law">
+            <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}"></a>
+          </div><!-- ~<div class="nav_law"> -->
+    
+        </div><!-- ~<div class="nav"> -->
+    </nav>
+    </nav>
+
+    <script src="{% static 'js/remember.js' %}"></script>
+  </body>
 </html>
