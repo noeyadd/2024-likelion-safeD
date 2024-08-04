@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+</head>
+<body>
+    <h1>Quiz Result</h1>
+    <p>점수 {{ score }}/{{ total }}</p><br>
+    {% if score == 5 %}
+        <p>훌륭해요! 모든 문제를 정확히 해결했습니다. 운전 시 매우 신중하고 적절하게 대처할 수 있겠어요!!</p>
+    {% elif score == 0 %}
+        <p>다시 도전해 보세요. 모든 문제를 틀렸습니니다. 더 많은 연습이 필요해요.</p>
+    {% else %}
+        <p>괜찮아요! 몇 가지 문제에서 실수가 있었습니다. 더 많은 연습을 통해 문제 해결 능력을 향상시켜 보세요.</p>
+    {% endif %}
+    <a href="{% url 'problem:note_view' %}">오답 노트</a><br>
+    <a href="{% url 'problem:pstart' %}">restart</a><br>
+    <a href="{% url 'home' %}">end</a>
+</body>
+</html>

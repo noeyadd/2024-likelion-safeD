@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note</title>
+    <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
+    </style>
+</head>
+<body>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <h1>Note {{ index }} / {{ total }}</h1>
+        <img width="240" height="240" src="{{ quiz.question.url }}"></img><br>
+        <p>{{ quiz.title }}</p>
+        <ul>
+            <li class="{% if quiz.option1 == selected_option %}incorrect{% elif quiz.option1 == quiz.correct_option %}correct{% endif %}">{{ quiz.option1 }}</li>
+            <li class="{% if quiz.option2 == selected_option %}incorrect{% elif quiz.option2 == quiz.correct_option %}correct{% endif %}">{{ quiz.option2 }}</li>
+            <li class="{% if quiz.option3 == selected_option %}incorrect{% elif quiz.option3 == quiz.correct_option %}correct{% endif %}">{{ quiz.option3 }}</li>
+            <li class="{% if quiz.option4 == selected_option %}incorrect{% elif quiz.option4 == quiz.correct_option %}correct{% endif %}">{{ quiz.option4 }}</li>
+        </ul>
+        <form method="post" action="{% url 'problem:note_navigation' 'prev' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" {% if is_first %}hidden{% endif %}>Previous</button>
+        </form>
+        <form method="post" action="{% url 'problem:note_navigation' 'next' %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" {% if is_last %}hidden{% endif %}>Next</button>
+        </form>
+    {% endif %}
+</body>
+</html>

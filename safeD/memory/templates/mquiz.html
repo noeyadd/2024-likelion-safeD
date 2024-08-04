@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz {{ index }} / 5</h1>
+    <form method="post" action="{% url 'memory:submit_answer' %}">
+        {% csrf_token %}
+        <img width="240" height="240" src="{{ quiz.question.url }}"></img><br>
+        <input type="submit" name="option" value="{{ quiz.option1 }}"><br>
+        <input type="submit" name="option" value="{{ quiz.option2 }}"><br>
+        <input type="submit" name="option" value="{{ quiz.option3 }}"><br>
+        <input type="submit" name="option" value="{{ quiz.option4 }}"><br>
+        <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
+    </form>
+</body>
+</html>

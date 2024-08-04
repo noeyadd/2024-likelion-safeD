@@ -1,4 +1,86 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import MemoryQuiz
+import random
+
+def start(request):
+    return render(request, 'memory.html')
 
 def mstart(request):
-    return render(request, 'memory.html')
+    quizzes = list(MemoryQuiz.objects.all())
+    random_quizzes = random.sample(quizzes, 5)
+    request.session['quiz_ids'] = [quiz.id for quiz in random_quizzes]
+    request.session['current_index'] = 0
+    request.session['score'] = 0
+    request.session['wrong_answers'] = []
+    return redirect('memory:quiz_view')
+
+def quiz_view(request):
+    current_index = request.session.get('current_index', 0)
+    quiz_ids = request.session.get('quiz_ids', [])
+    if current_index >= len(quiz_ids):
+        return redirect('memory:result_view')
+    
+    quiz_id = quiz_ids[current_index]
+    quiz = MemoryQuiz.objects.get(id=quiz_id)
+    context = {'quiz': quiz, 'index': current_index + 1}
+    return render(request, 'mquiz.html', context)
+
+def submit_answer(request):
+    if request.method == 'POST':
+        selected_option = request.POST.get('option')
+        quiz_id = request.POST.get('quiz_id')
+        quiz = MemoryQuiz.objects.get(id=quiz_id)
+        
+        current_index = request.session.get('current_index', 0)
+
+        if selected_option == quiz.correct_option:
+            request.session['score'] += 1
+        else:
+            wrong_answers = request.session.get('wrong_answers', [])
+            wrong_answers.append({'quiz_id': quiz_id, 'selected_option': selected_option, 'index': current_index})
+            request.session['wrong_answers'] = wrong_answers
+        
+        request.session['current_index'] += 1
+        return redirect('memory:quiz_view')
+    return redirect('memory:quiz_view')
+
+def result_view(request):
+    score = request.session.get('score', 0)
+    total = len(request.session.get('quiz_ids', []))
+    return render(request, 'mresult.html', {'score': score, 'total': total})
+
+def note_view(request):
+    current_index = request.session.get('note_current_index', 0)
+    wrong_answers = request.session.get('wrong_answers', [])
+    
+    if not wrong_answers:
+        return render(request, 'mnote.html', {'message': 'No wrong answers to review.'})
+    
+    # 틀린 문제를 원래 순서대로 정렬
+    wrong_answers.sort(key=lambda x: x['index'])
+
+    # current_index가 리스트의 길이를 넘지 않도록 보정
+    current_index = min(current_index, len(wrong_answers) - 1)
+    request.session['note_current_index'] = current_index
+
+    current_wrong_answer = wrong_answers[current_index]
+    quiz_id = current_wrong_answer['quiz_id']
+    selected_option = current_wrong_answer['selected_option']
+    quiz = MemoryQuiz.objects.get(id=quiz_id)
+    context = {
+        'quiz': quiz,
+        'index': current_index + 1,
+        'total': len(wrong_answers),
+        'is_first': current_index == 0,
+        'is_last': current_index == len(wrong_answers) - 1,
+        'selected_option': selected_option
+    }
+    return render(request, 'mnote.html', context)
+
+def note_navigation(request, direction):
+    if direction == 'prev':
+        request.session['note_current_index'] = max(0, request.session.get('note_current_index', 0) - 1)
+    elif direction == 'next':
+        wrong_answers = request.session.get('wrong_answers', [])
+        request.session['note_current_index'] = min(len(wrong_answers) - 1, request.session.get('note_current_index', 0) + 1)
+    return redirect('memory:note_view')
