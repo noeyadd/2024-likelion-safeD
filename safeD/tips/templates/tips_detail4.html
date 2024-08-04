@@ -1,16 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/tips_detail.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'tips:tstart' %}">뒤로가기</a>
-    
-    <h1>교통안전교육강사, 자동차운전 전문학원 강사 및 기능검정원 결격사유에 관한 적용례</h1>
-    <p>부      칙 <법률 제20270호, 2024. 2. 13.></p>
-    <p>제1조(시행일) 이 법은 공포 후 6개월이 경과한 날부터 시행한다.
-        제2조(교통안전교육강사, 자동차운전 전문학원 강사 및 기능검정원 결격사유에 관한 적용례) 제76조제3항제2호나목ㆍ다목ㆍ라목, 제106조제3항제1호 및 제107조제3항제2호의 개정규정은 이 법 시행 이후 발생한 범죄행위로 형벌을 받은 자부터 적용한다. 다만, 「교통사고처리 특례법」 제3조제1항 또는 「특정범죄 가중처벌 등에 관한 법률」 제5조의3을 위반한 사람에 대해서는 종전의 규정에 따른다.</p>
-</body>
+  </head>
+  <body>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_home"> -->
+
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_law"> -->
+      </div>
+      <!-- ~<div class="nav"> -->
+    </nav>
+    <div id="top">
+      <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/back_white.png'%}" /></a>
+      <h3>운전 꿀팁 !</h3>
+    </div>
+    <div id="detail_text">
+      <h2>비보호 좌회전</h2>
+      <p>
+        비보호 좌회전은 사람들이 가장 지키지 않은 교통법규 중 하나이다. 비보호 좌회전은 해당 표지판이 있는 곳에서만 녹색 신호 시 마주오는 차량을 방해하지 않으며
+        좌회전을 시도해야 한다. 적색 신호에 비보호 좌회전을 시도하는 경우, 교통법규 위반에 해당한다. 사고가 발생하는 경우 비보호 좌회전 운전자에게 더 큰 과실이
+        주어지니 늘 주의해서 운정해야 한다.
+      </p>
+    </div>
+  </body>
 </html>

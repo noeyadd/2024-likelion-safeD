@@ -2,39 +2,65 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/tips.css' %}" />
+    <title>tips</title>
+  </head>
+  <body>
     <nav>
       <div class="nav">
         <div class="nav_home">
-          <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}"></a>
-        </div><!-- ~<div class="nav_home"> -->
-  
-        <div class="nav_law">
-            <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}"></a>
-        </div><!-- ~<div class="nav_law"> -->
+          <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_home"> -->
 
-      </div><!-- ~<div class="nav"> -->
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_law"> -->
+      </div>
+      <!-- ~<div class="nav"> -->
     </nav>
-    <a href="{% url 'home' %}">뒤로가기</a>
-    <br>
-    <a href="{% url 'tips:tips_detail1' %}">1</a>
-    <br>
-    <a href="{% url 'tips:tips_detail2' %}">2</a>
-    <br>
-    <a href="{% url 'tips:tips_detail3' %}">3</a>
-    <br>
-    <a href="{% url 'tips:tips_detail4' %}">4</a>
-    <br>
-    <a href="{% url 'tips:tips_detail5' %}">5</a>
-    <br>
-    <a href="{% url 'tips:tips_detail6' %}">6</a>
-    <br>
-    <a href="{% url 'tips:tips_detail7' %}">7</a>
+    <div id="top">
+      <a href="{% url 'home' %}"><img src="{% static 'img/back_white.png'%}" /></a>
+      <h3>운전 꿀팁 !</h3>
+    </div>
+    <div id="container">
+      <div id="card">
+        <a href="{% url 'tips:tips_detail1' %}">
+          <div id="content">
+            <h4>반려동물 안고 운전 시 범칙금</h4>
+            <img src="{% static 'img/tips_next.png' %}" />
+          </div>
+        </a>
+      </div>
+      <div id="card">
+        <a href="{% url 'tips:tips_detail2' %}">
+          <div id="content">
+            <h4>노상 시비・다툼 금지</h4>
+            <img src="{% static 'img/tips_next.png' %}" />
+          </div>
+        </a>
+      </div>
+      <div id="card">
+        <a href="{% url 'tips:tips_detail3' %}">
+          <div id="content">
+            <h4>주행 중 내비게이션 조작 금지</h4>
+            <img src="{% static 'img/tips_next.png' %}" />
+          </div>
+        </a>
+      </div>
+      <div id="card">
+        <a href="{% url 'tips:tips_detail4' %}">
+          <div id="content">
+            <h4>비보호 좌회전</h4>
+            <img src="{% static 'img/tips_next.png' %}" />
+          </div>
+        </a>
+      </div>
+    </div>
     <script src="{% static 'js/tips.js' %}"></script>
-</body>
+  </body>
 </html>

@@ -1,0 +1,77 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  .nav_div {
+    position: fixed;
+    bottom: 0;
+  }
+
+  nav {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+/* top */
+#top {
+  background-color: #234ebd;
+  color: #fff;
+  display: flex;
+}
+#top > h3 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 홈으로 back_btn */
+#top > a > img {
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 100px;
+}
+
+/* 전체 목록 */
+#container {
+  display: block;
+  box-sizing: border-box;
+}
+#card {
+  box-sizing: content-box;
+  border: 1px solid #d6f0ff;
+  padding: 15px;
+  border-width: 0 0 1px;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between; /* 텍스트와 이미지를 양쪽 끝으로 배치 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  cursor: pointer;
+}
+
+#content > img {
+  height: 13px;
+}
+
+#content > h4 {
+  margin: 0; /* 기본 margin을 제거하여 양쪽 정렬이 잘 되도록 */
+}
+
+/* 텍스트 밑줄 없애고 검정색으로 변경 */
+a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #000000;
+}

@@ -1,16 +1,37 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/tips_detail.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <a href="{% url 'tips:tstart' %}">뒤로가기</a>
-    
-    <h1>운전면허의 취소ㆍ정지에 관한 적용례</h1>
-    <p>부      칙 <법률 제20270호, 2024. 2. 13.></p>
-    <p>제1조(시행일) 이 법은 공포 후 6개월이 경과한 날부터 시행한다.
-        제3조(운전면허의 취소ㆍ정지에 관한 적용례) 제93조제1항제11호의 개정규정은 운전면허를 받은 사람이 이 법 시행 이후 자동차등을 범죄의 도구나 장소로 이용하여 「보험사기방지 특별법」 중 제8조부터 제10조까지의 죄를 범한 경우부터 적용한다.</p>
-</body>
+  </head>
+  <body>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_home"> -->
+
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" /></a>
+        </div>
+        <!-- ~<div class="nav_law"> -->
+      </div>
+      <!-- ~<div class="nav"> -->
+    </nav>
+    <div id="top">
+      <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/back_white.png'%}" /></a>
+      <h3>운전 꿀팁 !</h3>
+    </div>
+    <div id="detail_text">
+      <h2>주행 중 내비게이션 조작 금지</h2>
+      <p>
+        주행 중 내비게이션 조작은 교통법규 위반이다. 주행 중 내비게이션에 포함된 DMB를 시청하는 것 역시 교통법규 위반에 해당하니 주의해야 한다. 적발 시 최고
+        7만원의 벌금과 15점의 벌점이 부과될 수 있다.
+      </p>
+    </div>
+  </body>
 </html>

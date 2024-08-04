@@ -23,7 +23,7 @@
   }
 }
 
-#back_btn > img {
+#back_btn >a>  img {
   height: 50px;
 }
 #top {

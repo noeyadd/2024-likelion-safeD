@@ -1,0 +1,47 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  .nav_div {
+    position: fixed;
+    bottom: 0;
+  }
+
+  nav {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+/* top */
+#top {
+  background-color: #234ebd;
+  color: #fff;
+  display: flex;
+}
+#top > h3 {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 홈으로 back_btn */
+#top > a > img {
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 100px;
+}
+
+#detail_text {
+  padding: 20px;
+}
