@@ -19,13 +19,15 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 
-
+body{
+  margin: 0;
+}
 /* 뒤로가기 버튼 */
-#back_btn > img {
+#back_btn >a> img {
   height: 50px;
 }
 
@@ -48,7 +50,7 @@
   box-sizing: border-box;
   border-radius: 12px;
   padding: 15px;
-  margin-left: 25px;
+  margin-left: 40px;
   margin-top: 25px;
 }
 

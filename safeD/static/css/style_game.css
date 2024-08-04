@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
 }
 
@@ -44,8 +44,8 @@
   box-sizing: border-box;
   border-radius: 12px;
   padding: 15px;
-  margin-left: 25px;
-  margin-top: 25px;
+  margin-left: 40px;
+  margin-top:15px;
 }
 
 #box > #text > h4 {
@@ -61,7 +61,6 @@
   justify-content: center;
   align-items: center;
   margin-top: 25px;
-  margin-bottom: 25px;
   margin-left: 53px;
 }
 
@@ -83,7 +82,11 @@ button {
   color: #fff;
   border-radius: 12px;
   font-size: 18px;
-  margin-left: 60px;
+  margin-left: 70px;
   border: none;
   cursor: pointer;
+}
+
+body{
+  margin: 0;
 }
