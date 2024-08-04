@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
   <link rel="stylesheet" href="css/home.css"></link>
+  
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <header></header>
@@ -21,9 +29,126 @@
       </div><!-- ~<div class="nav"> -->
   </nav>
   <section>
-    메인 페이지
+    <div class="main">
+      <div class="content">
+        <div class="logo">
+          <p>safeD</p>
+        </div><!-- ~<div class="logo"> -->
+  
+        <div class="main_text">
+          <p><span id="logo_span">safeD</span>와 함께</p>
+          <p>안전한 운전을 위해 노력해요</p>
+        </div><!-- ~<div class="main_text"> -->
+
+        <div class="line_img">
+          <img src="img/line.png">
+        </div><!-- ~<div class="coline_img"> -->
+
+        <div class="main_img">
+          <img src="img/main_img.png">
+        </div><!-- ~<div class="main_img"> -->
+
+        <div class="title">
+          <p>게임 플레이 하기</p>
+        </div><!-- ~<div class="title"> -->
+
+        <div class="game_menu">
+          <div class="reaction">
+            <div class="menu_img">
+              <img src="/img/Firecracker.png">
+            </div>
+
+            <div class="menu_text">
+              <span>반응 속도</span>
+              <br>
+              <span>15 second</span>
+            </div>
+
+            <div class="menu_detail">
+              <p>초록불이 나오면 엑셀을, 빨간불이 나오거나 고라니 캐릭터가 튀어나오면 브레이크를 
+                누르세요. 고라니가 나온 후 브레이크를 
+                누른 반응 시간을 측정하여 
+                게임이 종료됩니다.</p>
+            </div>
+
+            <div class="menu_btn">
+              <button type="button" onclick="getElementById('slick-slide00').style.backgroundColor='#D6F0FF'"><a href="speedGame.html">START</a></button>
+            </div>
+          </div><!-- ~<div class="reaction"> -->
+
+          <div class="memory">
+            <div class="menu_img">
+              <img src="/img/film.png">
+            </div>
+
+            <div class="menu_text">
+              <span>기억력</span>
+              <br>
+              <span>5 Quizzes</span>
+            </div>
+
+            <div class="menu_detail">
+              <p>도로 표지판과 도로 선 표시의 의미를 묻는 퀴즈입니다.
+                이미지가 제시되며, 문제의 
+                보기 중 맞는 답 하나를 선택하세요.</p>
+            </div>
+
+            <div class="menu_btn">
+              <button type="button" onclick="getElementById('slick-slide01').style.backgroundColor='#D6F0FF'"><a href="#">START</a></button>
+            </div>
+          </div><!-- ~<div class="memory"> -->
+
+          <div class="solving">
+            <div class="menu_img">
+              <img src="/img/projector.png">
+            </div>
+
+            <div class="menu_text">
+              <span>문제 해결 능력</span>
+              <br>
+              <span>5 Quizzes</span>
+            </div>
+
+            <div class="menu_detail">
+              <p>운전 중 발생할 수 있는 상황들을 
+                보여줍니다. 가장 안전한 운전 방법 
+                2가지를 선택하세요.</p>
+            </div>
+
+            <div class="menu_btn">
+              <button type="button" onclick="getElementById('slick-slide02').style.backgroundColor='#D6F0FF'"><a href="#">START</a></button>
+            </div>
+          </div><!-- ~<div class="solving"> -->
+
+        </div><!-- ~<div class="game_menu"> -->
+
+        
+      </div><!-- ~<div class="content"> -->
+      
+    </div><!-- ~<div class="main"> -->
   </section>
   
   <script src="js/home.js"></script>
+
+  <!-- jQuery 스크립트 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Slick 플러그인 스크립트 추가 -->
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('.game_menu').slick({
+        variableWidth: true,
+        dots: true,
+        arrows: false,
+        infinite:false,
+        centerMode: true,
+        centerPadding: '10px',
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      });
+    });
+  </script>
 </body>
 </html>
