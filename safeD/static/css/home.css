@@ -1,0 +1,195 @@
+    @media all and (max-width: 394px) {
+    /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+        * {
+            box-sizing: border-box;
+        }
+
+        .nav_div {
+            position: fixed;
+            bottom: 0;
+        }
+
+        nav {
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+        }
+
+    .nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    body {
+        margin: 0;
+    }
+
+    .main {
+        /* background-color: #234ebd; */
+        width: 100%;
+        height: 92vw;
+        background-image: url("../img/background.png");
+        background-size: cover;
+    }
+
+    .content {
+        padding: 6vw;
+        /* height: 100vh; */
+    }
+
+    .logo p,
+    .main_text p {
+        margin: 0;
+        color: white;
+    }
+
+    .logo p,
+    #logo_span {
+        font-family: "Anonymous Pro", monospace;
+        font-weight: 900;
+        font-style: normal;
+    }
+
+    .main_text p {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .main_text {
+        margin-top: 6vw;
+    }
+
+    .line_img {
+        /* width: 89vw; */
+        margin-top: 6vw;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
+
+    .line_img img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .main_img {
+        display: flex;
+        justify-content: center;
+        margin-top: 6vw;
+        overflow: hidden;
+    }
+
+    .main_img img {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .title p {
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    #slick-slide00,
+    #slick-slide01,
+    #slick-slide02 {
+        width: 80vw !important;
+        height: 95vw;
+        border: 2px solid #d6f0ff;
+        border-radius: 20px;
+        margin: 5px;
+        padding: 15px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: space-around !important;
+    }
+
+    .game_menu {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .slick-track {
+        width: 1000px !important;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: red !important;
+        display: flex !important;
+    }
+
+    .reaction {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .menu_img {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    .menu_img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .menu_text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+        line-height: 80%;
+    }
+
+    .menu_text span:nth-child(1) {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .menu_text span:nth-child(3) {
+        font-size: 12px;
+        color: #8fc9ff;
+    }
+
+    .menu_detail {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu_detail p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .menu_btn button {
+        width: 23vw;
+        background-color: #234ebd;
+        border-radius: 10px;
+        border: none;
+        padding: 5px;
+    }
+
+    .menu_btn a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #slick-slide-control00:before,
+    #slick-slide-control01:before,
+    #slick-slide-control02:before {
+        color: #234ebd !important;
+    }
+    }

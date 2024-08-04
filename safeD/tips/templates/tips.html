@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,18 @@
     <title>Document</title>
 </head>
 <body>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}"><img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}"></a>
+        </div><!-- ~<div class="nav_home"> -->
+  
+        <div class="nav_law">
+            <a href="{% url 'tips:tstart' %}"><img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}"></a>
+        </div><!-- ~<div class="nav_law"> -->
+
+      </div><!-- ~<div class="nav"> -->
+    </nav>
     <a href="{% url 'home' %}">뒤로가기</a>
     <br>
     <a href="{% url 'tips:tips_detail1' %}">1</a>
@@ -21,6 +35,6 @@
     <a href="{% url 'tips:tips_detail6' %}">6</a>
     <br>
     <a href="{% url 'tips:tips_detail7' %}">7</a>
-    
+    <script src="{% static 'js/tips.js' %}"></script>
 </body>
 </html>
