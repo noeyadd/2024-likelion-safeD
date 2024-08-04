@@ -1,0 +1,216 @@
+@media all and (max-width: 394px) {
+  /* 화면 너비가 393px 이하인 경우에만 적용되는 스타일 */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #btn_img {
+    width: 13px;
+    height: 20px;
+    margin-top: 30px;
+    margin-left: 23px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+    margin-top: 35px;
+  }
+
+  .h1-img {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #remember_img {
+    width: 35px;
+    height: 35px;
+    margin-top: 13px;
+    margin-right: 10px;
+  }
+
+  /* section part */
+  .instructions {
+    background-color: #e8f4fa;
+    padding: 20px;
+    padding-top: 3px;
+    margin: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .quiz {
+    font-size: 20px;
+  }
+
+  .image-box {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #d6f0ff;
+    padding: 3px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #d6f0ff;
+  }
+
+  .btn.yellow {
+    background-color: #ffd700;
+  }
+
+  .btn:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Overlay part */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .overlay.correct {
+    background-color: rgba(143, 201, 255, 0.2);
+  }
+
+  .overlay.incorrect {
+    background-color: rgba(221, 66, 71, 0.2);
+  }
+
+  .overlay-content {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .result-container {
+    display: flex;
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  .result-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .result-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1;
+  }
+
+  #result-img {
+    width: 100px;
+    height: auto;
+  }
+
+  .overlay-buttons {
+    display: flex;
+    width: 100%;
+  }
+
+  .btn-overlay {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1em;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-overlay.correct {
+    border-top: 1px solid rgba(143, 201, 255, 0.2);
+  }
+
+  .btn-overlay.incorrect {
+    border-top: 1px solid rgba(221, 66, 71, 0.2);
+  }
+
+  .btn-overlay:first-child.correct {
+    border-right: 1px solid rgba(143, 201, 255, 0.2);
+  }
+
+  .btn-overlay:first-child.incorrect {
+    border-right: 1px solid rgba(221, 66, 71, 0.2);
+  }
+
+  #next-question {
+    margin-top: 5px;
+    border: none;
+    background-color: transparent;
+    font-size: 1em;
+    width: 100%;
+    display: flex;
+    padding-left: 240px;
+    color: #6bb8ff;
+  }
+
+  /* nav part */
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+  }
+
+}

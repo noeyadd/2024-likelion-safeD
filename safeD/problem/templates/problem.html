@@ -1,12 +1,47 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>문제 해결 능력</p>
-    <a href="{% url 'problem:pstart' %}">start</a>
-</body>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문제</title>
+    <link rel="stylesheet" href="{% static 'css/problem.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><img src="{% static 'img/Button.png' %}" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="{% static 'img/problem.png' %}" id="problem_img" />
+          <h1>문제 해결 능력</h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="instructions">
+        <h2>게임 방법</h2>
+        <p>운전 중 발생할 수 있는 상황들을 <br> 보여줍니다. 가장 안전한 운전 방법을 <br> 선택하세요.</p>
+      </div>
+      <a href="{% url 'problem:pstart' %}" class="start-btn">START</a>
+    </section>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" />
+          </a>
+        </div>
+
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}">
+            <img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" />
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <script src="{% static 'js/problem.js' %}"></script>
+  </body>
 </html>

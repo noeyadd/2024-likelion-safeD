@@ -1,0 +1,122 @@
+@media all and (max-width: 394px) {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  #btn_img {
+    width: 13px;
+    height: 20px;
+    margin-top: 30px;
+    margin-left: 23px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+    margin-top: 35px;
+  }
+
+  .h1-img {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #problem_img {
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
+    margin-bottom: 8px;
+  }
+
+  .content {
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .instructions {
+    background-color: #e8f4fa;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .instructions h2 {
+    margin-top: 0;
+    padding-top: 0;
+    color: #6bb8ff;
+    font-size: 18px;
+    padding-bottom: 10px;
+  }
+
+  .instructions p {
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .start-btn {
+    display: block;
+    margin-left: 14vw;
+    width: 70%;
+    height: 50px;
+    padding: 10px;
+    padding-top: 12px;
+    font-size: 1.3em;
+    color: white;
+    background-color: #234ebd;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: none;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+  }
+}

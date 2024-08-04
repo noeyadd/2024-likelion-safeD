@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   let reactionEndTime;
   let isMoving = false;
 
-  
   // 신호등 상태를 변경하는 함수
   function changeSignal() {
     // 모든 신호등 색상을 비활성화
@@ -63,7 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // 엑셀 버튼 클릭 시 움직임 시작 또는 멈춤
-  document.getElementById("accelButton").addEventListener("click", toggleCarMotion);
+  document
+    .getElementById("accelButton")
+    .addEventListener("click", toggleCarMotion);
   // 브레이크 버튼 클릭 시 움직임 멈춤
   document.getElementById("brakeButton").addEventListener("click", function () {
     if (isMoving) toggleCarMotion();
@@ -103,7 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 게임 종료 및 결과 모달 표시
   function endGame(reactionTime) {
-    resultText.innerText = `반응 시간: ${reactionTime} 초`;
+    let reactionMessage = "";
+    //0.7 이하 -> 아주 굿
+    //0.7 초과 ~ 1.2 -> 굿
+    //1.2 -> 분발하세요
+    if (reactionTime <= 0.7) {
+      reactionMessage =
+        "훌륭해요! 반응 속도가 매우 빠릅니다. \n계속해서 연습해보세요.";
+    } else if (reactionTime <= 1.2) {
+      reactionMessage =
+        "좋아요! 반응 속도가 양호합니다. \n조금 더 연습하면 더 빨라질 수 있어요.";
+    } else {
+      reactionMessage =
+        "천천히 다시 도전해 보세요. 반응 속도가 느렸습니다. \n꾸준한 연습이 필요해요.";
+    }
+
+    resultText.innerText = `반응 시간: ${reactionTime} 초 \n\n ${reactionMessage}`;
     resultModal.style.display = "block";
     brakeButton.disabled = true;
     gorani.classList.add("hidden");

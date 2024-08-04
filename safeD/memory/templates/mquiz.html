@@ -1,19 +1,103 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Quiz</title>
-</head>
-<body>
-    <h1>Quiz {{ index }} / 5</h1>
-    <form method="post" action="{% url 'memory:submit_answer' %}">
-        {% csrf_token %}
-        <img width="240" height="240" src="{{ quiz.question.url }}"></img><br>
-        <input type="submit" name="option" value="{{ quiz.option1 }}"><br>
-        <input type="submit" name="option" value="{{ quiz.option2 }}"><br>
-        <input type="submit" name="option" value="{{ quiz.option3 }}"><br>
-        <input type="submit" name="option" value="{{ quiz.option4 }}"><br>
-        <input type="hidden" name="quiz_id" value="{{ quiz.id }}">
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remember</title>
+    <link rel="stylesheet" href="{% static 'css/mquiz.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><img src="{% static 'img/Button.png' %}" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="{% static 'img/remember.png' %}" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <div class="instructions">
+        <h1 class="quiz">Quiz {{ index }} / 5</h1>
+        <div class="image-box">
+          <img id="q-img" width="240" height="240" src="{{ quiz.question.url }}" />
+        </div>
+        <form id="quiz-form" method="post" action="{% url 'memory:submit_answer' %}">
+          {% csrf_token %}
+          <div class="buttons">
+            <input
+              class="btn"
+              type="submit"
+              name="option"
+              value="{{ quiz.option1 }}"
+              id="{% if quiz.option1 == quiz.correct_option %}correct-btn{% endif %}"
+            />
+            <input
+              class="btn"
+              type="submit"
+              name="option"
+              value="{{ quiz.option2 }}"
+              id="{% if quiz.option2 == quiz.correct_option %}correct-btn{% endif %}"
+            />
+            <input
+              class="btn"
+              type="submit"
+              name="option"
+              value="{{ quiz.option3 }}"
+              id="{% if quiz.option3 == quiz.correct_option %}correct-btn{% endif %}"
+            />
+            <input
+              class="btn"
+              type="submit"
+              name="option"
+              value="{{ quiz.option4 }}"
+              id="{% if quiz.option4 == quiz.correct_option %}correct-btn{% endif %}"
+            />
+            <input type="hidden" name="quiz_id" value="{{ quiz.id }}" />
+          </div>
+        </form>
+      </div>
+      <button id="next-question" style="display: none">다음으로 ></button>
+    </section>
+    <div id="overlay" class="overlay">
+      <div class="overlay-content">
+        <div class="result-container">
+          <div class="result-left">
+            <img src="" alt="결과 이미지" id="result-img" />
+          </div>
+          <div class="result-right">
+            <p id="result-text"></p>
+          </div>
+        </div>
+        <div class="overlay-buttons">
+          <button class="btn-overlay" id="check-answer">정답 확인</button>
+          <button class="btn-overlay" id="next-question-overlay">다음 문제</button>
+          <button class="btn-overlay" id="view-result" style="display: none">결과 보기</button>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" />
+          </a>
+        </div>
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}">
+            <img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" />
+          </a>
+        </div>
+      </div>
+    </nav>
+    <script src="{% static 'js/mquiz.js' %}"></script>
+    <script>
+      const correctOption = "{{ quiz.correct_option }}"; // 서버에서 정답 데이터 전달
+      const quizViewUrl = "{% url 'memory:quiz_view' %}"; // quiz_view URL을 JavaScript 변수에 할당
+      const correctImageUrl = "{% static 'img/correct.png' %}"; // 정답 이미지 경로를 JavaScript 변수에 할당
+      const incorrectImageUrl = "{% static 'img/incorrect.png' %}"; // 오답 이미지 경로를 JavaScript 변수에 할당
+    </script>
+  </body>
 </html>
