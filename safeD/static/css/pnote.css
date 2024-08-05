@@ -122,12 +122,13 @@
     margin-right: 30px;
   }
 
-  #p-question,
   #next-question {
-    background-color: transparent;
     border: none;
+    background-color: transparent;
     font-size: 1em;
+    display: flex;
     color: #6bb8ff;
+    margin-left: 230px;
   }
 
   .opt {

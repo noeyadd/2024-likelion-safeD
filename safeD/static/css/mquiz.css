@@ -153,6 +153,8 @@
     align-items: center;
     padding: 20px;
     flex-grow: 1;
+    padding-top: 45px;
+    padding-bottom: 15px;
   }
 
   #result-img {

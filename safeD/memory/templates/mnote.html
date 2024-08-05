@@ -57,15 +57,9 @@
         </div>
       </div>
       <div class="p-n">
-        <form method="post" action="{% url 'memory:note_navigation' 'prev' %}" style="display: inline">
-          {% csrf_token %}
-          <!--<button id="p-question" type="submit" {% if is_first %}hidden{% endif %}>< 이전으로</button>-->
-          <button id="p-question" type="submit" hidden>< 이전으로</button>
-        </form>
         <form method="post" action="{% url 'memory:note_navigation' 'next' %}" style="display: inline">
           {% csrf_token %}
-          <!--<button id="next-question" type="submit" {% if is_last %}hidden{% endif %}>다음으로 ></button>-->
-          <button id="next-question" type="submit"> 다음으로 ></button>
+          <button id="next-question" type="submit">다음으로 ></button>
         </form>
       </div>
       {% endif %}

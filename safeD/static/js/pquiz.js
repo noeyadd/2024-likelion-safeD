@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           if (button === correctBtn) {
             correctBtn.style.backgroundColor = "#FFC93D";
-            resultText.innerHTML = "정답!<br>다음으로 이동합니다";
+            resultText.innerHTML = "정답!<br><br>다음으로<br>이동합니다";
             overlay.classList.add("correct");
             overlay.classList.remove("incorrect");
             resultImg.src = correctImageUrl; // 정답 이미지 경로 설정
