@@ -1,33 +1,88 @@
+{% load static %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Note</title>
-    <style>
-        .correct { color: green; }
-        .incorrect { color: red; }
-    </style>
-</head>
-<body>
-    {% if message %}
-        <p>{{ message }}</p>
-    {% else %}
-        <h1>Note {{ index }} / {{ total }}</h1>
-        <img width="240" height="240" src="{{ quiz.question.url }}"></img><br>
-        <ul>
-            <li class="{% if quiz.option1 == selected_option %}incorrect{% elif quiz.option1 == quiz.correct_option %}correct{% endif %}">{{ quiz.option1 }}</li>
-            <li class="{% if quiz.option2 == selected_option %}incorrect{% elif quiz.option2 == quiz.correct_option %}correct{% endif %}">{{ quiz.option2 }}</li>
-            <li class="{% if quiz.option3 == selected_option %}incorrect{% elif quiz.option3 == quiz.correct_option %}correct{% endif %}">{{ quiz.option3 }}</li>
-            <li class="{% if quiz.option4 == selected_option %}incorrect{% elif quiz.option4 == quiz.correct_option %}correct{% endif %}">{{ quiz.option4 }}</li>
-        </ul>
-        <form method="post" action="{% url 'memory:note_navigation' 'prev' %}" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit" {% if is_first %}hidden{% endif %}>Previous</button>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오답노트</title>
+    <link rel="stylesheet" href="{% static 'css/mnote.css' %}" />
+  </head>
+  <body>
+    <header>
+      <a href="{% url 'home' %}"><img src="{% static 'img/Button.png' %}" id="btn_img" /></a>
+      <div class="header">
+        <div class="h1-img">
+          <img src="{% static 'img/remember.png' %}" id="remember_img" />
+          <h1>기억력</h1>
+        </div>
+      </div>
+    </header>
+
+    <section class="content">
+      <div class="instructions">
+        {% if message %}
+        <p class="m">{{ message }}</p>
+        {% else %}
+        <h1 class="n-h">Review Note</h1>
+        <div class="image-box">
+          <img width="240" height="240" src="{{ quiz.question.url }}" />
+        </div>
+
+        <div class="buttons">
+          <p
+            id="{% if quiz.option1 == selected_option %}incorrect{% elif quiz.option1 == quiz.correct_option %}correct{% endif %}"
+            class="opt"
+          >
+            {{ quiz.option1 }}
+          </p>
+          <p
+            id="{% if quiz.option2 == selected_option %}incorrect{% elif quiz.option2 == quiz.correct_option %}correct{% endif %}"
+            class="opt"
+          >
+            {{ quiz.option2 }}
+          </p>
+          <p
+            id="{% if quiz.option3 == selected_option %}incorrect{% elif quiz.option3 == quiz.correct_option %}correct{% endif %}"
+            class="opt"
+          >
+            {{ quiz.option3 }}
+          </p>
+          <p
+            id="{% if quiz.option4 == selected_option %}incorrect{% elif quiz.option4 == quiz.correct_option %}correct{% endif %}"
+            class="opt"
+          >
+            {{ quiz.option4 }}
+          </p>
+        </div>
+      </div>
+      <div class="p-n">
+        <form method="post" action="{% url 'memory:note_navigation' 'prev' %}" style="display: inline">
+          {% csrf_token %}
+          <!--<button id="p-question" type="submit" {% if is_first %}hidden{% endif %}>< 이전으로</button>-->
+          <button id="p-question" type="submit" hidden>< 이전으로</button>
         </form>
-        <form method="post" action="{% url 'memory:note_navigation' 'next' %}" style="display: inline;">
-            {% csrf_token %}
-            <button type="submit" {% if is_last %}hidden{% endif %}>Next</button>
+        <form method="post" action="{% url 'memory:note_navigation' 'next' %}" style="display: inline">
+          {% csrf_token %}
+          <!--<button id="next-question" type="submit" {% if is_last %}hidden{% endif %}>다음으로 ></button>-->
+          <button id="next-question" type="submit"> 다음으로 ></button>
         </form>
-    {% endif %}
-</body>
+      </div>
+      {% endif %}
+    </section>
+    <nav>
+      <div class="nav">
+        <div class="nav_home">
+          <a href="{% url 'home' %}">
+            <img src="{% static 'img/home.png' %}" id="home_img" data-new-src="{% static 'img/home2.png' %}" />
+          </a>
+        </div>
+        <div class="nav_law">
+          <a href="{% url 'tips:tstart' %}">
+            <img src="{% static 'img/law.png' %}" id="law_img" data-new-src="{% static 'img/law2.png' %}" />
+          </a>
+        </div>
+      </div>
+    </nav>
+  </body>
 </html>

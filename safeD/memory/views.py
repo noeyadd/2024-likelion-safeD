@@ -12,6 +12,8 @@ def mstart(request):
     request.session['current_index'] = 0
     request.session['score'] = 0
     request.session['wrong_answers'] = []
+    request.session['answers'] = []
+    
     return redirect('memory:quiz_view')
 
 def quiz_view(request):
@@ -35,11 +37,12 @@ def submit_answer(request):
 
         if selected_option == quiz.correct_option:
             request.session['score'] += 1
+            request.session['answers'].append('O')
         else:
             wrong_answers = request.session.get('wrong_answers', [])
             wrong_answers.append({'quiz_id': quiz_id, 'selected_option': selected_option, 'index': current_index})
             request.session['wrong_answers'] = wrong_answers
-        
+            request.session['answers'].append('X')
         request.session['current_index'] += 1
         return redirect('memory:quiz_view')
     return redirect('memory:quiz_view')
@@ -47,14 +50,16 @@ def submit_answer(request):
 def result_view(request):
     score = request.session.get('score', 0)
     total = len(request.session.get('quiz_ids', []))
-    return render(request, 'mresult.html', {'score': score, 'total': total})
+    answers = request.session.get('answers', [])
+
+    return render(request, 'mresult.html', {'score': score, 'total': total, 'answers' : answers})
 
 def note_view(request):
     current_index = request.session.get('note_current_index', 0)
     wrong_answers = request.session.get('wrong_answers', [])
     
     if not wrong_answers:
-        return render(request, 'mnote.html', {'message': 'No wrong answers to review.'})
+        return render(request, 'mnote.html', {'message': '틀린 문제가 없습니다.'})
     
     # 틀린 문제를 원래 순서대로 정렬
     wrong_answers.sort(key=lambda x: x['index'])
@@ -78,9 +83,10 @@ def note_view(request):
     return render(request, 'mnote.html', context)
 
 def note_navigation(request, direction):
-    if direction == 'prev':
-        request.session['note_current_index'] = max(0, request.session.get('note_current_index', 0) - 1)
-    elif direction == 'next':
+    if direction == 'next':
         wrong_answers = request.session.get('wrong_answers', [])
-        request.session['note_current_index'] = min(len(wrong_answers) - 1, request.session.get('note_current_index', 0) + 1)
+        if request.session['note_current_index'] == len(wrong_answers) - 1:
+            request.session['note_current_index'] = 0
+        else:
+            request.session['note_current_index'] = request.session.get('note_current_index', 0) + 1
     return redirect('memory:note_view')

@@ -43,11 +43,9 @@
           <button class="close-btn">&times;</button>
         </div>
         <ul id="mistake-list">
-          <li>1. <span id="result-1"></span></li>
-          <li>2. <span id="result-2"></span></li>
-          <li>3. <span id="result-3"></span></li>
-          <li>4. <span id="result-4"></span></li>
-          <li>5. <span id="result-5"></span></li>
+          {% for answer in answers %}
+                <li>{{ forloop.counter }}. {{ answer }} <span id="result-{{ forloop.counter }}"></span></li>
+          {% endfor %}
         </ul>
         <a href="{% url 'problem:note_view' %}"><button class="btn-overlay">틀린 문제보기</button></a>
       </div>

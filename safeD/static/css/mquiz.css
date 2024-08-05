@@ -82,7 +82,7 @@
 
   .btn {
     padding: 10px;
-    font-size: 1em;
+    font-size: 0.77em;
     border: none;
     cursor: pointer;
     color: #333;
@@ -212,5 +212,4 @@
     background-color: #fff;
     position: fixed;
   }
-
 }
