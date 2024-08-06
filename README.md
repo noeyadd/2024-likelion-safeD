@@ -2,9 +2,9 @@
 
 **2024 중앙해커톤 : 디벨롭핑**
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=8FC9FF&height=200&section=header&text=LIKELION-safeD&fontSize=40" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=1E90FF&height=200&section=header&text=LIKELION-safeD&fontSize=40&fontColor=ffffff" />
 
-### 📙 프로젝트 소개
+### 🚘 프로젝트 소개
 
 - **서비스 소개**
 
