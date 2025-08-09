@@ -19,10 +19,13 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             set -e
-            cd ${{ secrets.PROJECT_DIR }}
+
+            # 1) 깃 저장소 루트에서 최신 코드
+            cd ${{ secrets.REPO_DIR }}
             git pull origin main
 
-            # (선택) 의존성 및 마이그레이션
+            # 2) 장고 앱 폴더에서 venv/migrate
+            cd ${{ secrets.APP_DIR }}
             if [ -d "myvenv" ]; then
               source myvenv/bin/activate
               pip install --upgrade pip
@@ -30,6 +33,6 @@ jobs:
               python manage.py migrate --noinput
             fi
 
-            # 핵심: systemd로 재시작
+            # 3) 서비스 재시작
             sudo systemctl restart uwsgi
             sudo nginx -t && sudo systemctl reload nginx || true
